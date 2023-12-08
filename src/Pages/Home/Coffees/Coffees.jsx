@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SingleCoffe from "./SingleCoffe";
+import SingleCoffee from "./SingleCoffe";
 import { AiOutlineCoffee } from "react-icons/ai";
 
 const Coffees = () => {
@@ -30,7 +30,7 @@ const Coffees = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 container mx-auto gap-y-8 py-8 px-5">
         {coffees?.map((coffee) => (
-          <SingleCoffe key={coffee._id} coffee={coffee}></SingleCoffe>
+          <SingleCoffee key={coffee._id} coffee={coffee}></SingleCoffee>
         ))}
       </div>
     </div>

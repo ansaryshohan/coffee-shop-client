@@ -1,7 +1,9 @@
+// import { useContext } from "react";
 import { AiFillDelete, AiFillEdit, AiFillEye } from "react-icons/ai";
+import { Link, useLocation } from "react-router-dom";
 
-const SingleCoffe = ({ coffee }) => {
-  // console.log(coffee)
+const SingleCoffee = ({ coffee }) => {
+  const location = useLocation();
 
   return (
     <div className="bg-cardBgColor flex justify-around items-center pl-4 pr-8 py-5 rounded-lg shadow-lg w-11/12">
@@ -20,9 +22,14 @@ const SingleCoffe = ({ coffee }) => {
         <h3>
           Price: {coffee.price ? coffee.price + " taka" : "not available"}
         </h3>
+        <button className="text-xl font-bold bg-buttonColor text-primaryTextColor px-3 py-2 rounded-xl mt-4 hover:text-formBgColor uppercase">
+          Add to cart
+        </button>
       </div>
       <div className="grow-0 flex flex-col gap-y-2 cursor-pointer">
-        <AiFillEye size={25} color="#331A15" />
+        <Link to={`/coffee/${coffee._id}`} state={{ from: location }}>
+          <AiFillEye size={25} color="#331A15" />
+        </Link>
         <AiFillEdit size={25} color="#E3B577" />
         <AiFillDelete size={25} color="red" />
       </div>
@@ -30,4 +37,4 @@ const SingleCoffe = ({ coffee }) => {
   );
 };
 
-export default SingleCoffe;
+export default SingleCoffee;
